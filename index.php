@@ -16,6 +16,8 @@
 
 
 /**
+ *  Main file to view greetings
+ *
  * @package     local_greetings
  * @copyright   2023 Paul <paul.rojas@correounivalle.edu.co>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,6 +25,7 @@
 
 
 require_once('../../config.php');
+require_once($CFG->dirroot. '/local/greetings/lib.php');
 
 $context = context_system::instance();
 
@@ -36,9 +39,9 @@ $PAGE->set_heading(get_string('pluginname', 'local_greetings'));
 echo $OUTPUT->header();
 
 if (isloggedin()) {
-    echo '<h2>Greetings, ' . fullname($USER) . '</h2>';
+    echo local_greetings_get_greeting($USER);
 } else {
-    echo '<h2>Greetings, user</h2>';
+    echo get_string('greetinguser', 'local_greetings');
 }
 
 
