@@ -36,4 +36,6 @@ $string['greetinguserfj'] = 'Bula, {$a}.';
 $string['greetingusernz'] = 'Kia Ora, {$a}.';
 $string['greetinguserco'] = 'Que hubo, {$a}.';
 
-$string['yourmessage'] = 'Your message';
+$string['yourmessage'] = '!Escribe un mensaje en el espacio para que aparezca en esta página!';
+
+$string['postedby'] = 'Posted by {$a}.';
