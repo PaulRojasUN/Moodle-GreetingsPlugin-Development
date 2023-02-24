@@ -15,25 +15,34 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin strings are defined here.
+ * Plugin version and other meta-data are defined here.
  *
  * @package     local_greetings
- * @category    string
  * @copyright   2023 Paul <paul.rojas@correounivalle.edu.co>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Greetings';
+require_once($CFG->libdir . '/formslib.php');
 
-$string['greetinguser'] = 'Greetings, user';
-$string['greetingloggedinuser'] = 'Greetings, {$a}';
+/**
+ * This class handles the showing the user's greeting process.
+ */
+class local_greetings_message_form extends moodleform {
 
-$string['greetinguserau'] = 'Hello, {$a}.';
-$string['greetinguseres'] = 'Hola, {$a}.';
-$string['greetinguserfj'] = 'Bula, {$a}.';
-$string['greetingusernz'] = 'Kia Ora, {$a}.';
-$string['greetinguserco'] = 'Que hubo, {$a}.';
+    /**
+     * Define the form
+     *
+     * @return void
+     */
+    public function definition() {
+        $mform = $this->_form;
 
-$string['yourmessage'] = 'Your message';
+        $mform->addElement('textarea', 'message', get_string('yourmessage', 'local_greetings'));
+        $mform->setType('message', PARAM_TEXT);
+
+        $submitlabel = get_string('submit');
+        $mform->addElement('submit', 'submitmessage', $submitlabel);
+    }
+}
