@@ -45,7 +45,7 @@ if (isguestuser()) {
 $messageform = new local_greetings_message_form();
 
 if ($data = $messageform->get_data()) {
-    $message = required_param('message', PARAM_TEXT);
+    $message = required_param('message', PARAM_RAW);
 
     if (!empty($message)) {
         $record = new stdClass;
