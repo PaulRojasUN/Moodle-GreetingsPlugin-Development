@@ -14,8 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
+
 /**
- * Plugin version and other meta-data are defined here.
+ *  Main file to view greetings
  *
  * @package     local_greetings
  * @copyright   2023 Paul <paul.rojas@correounivalle.edu.co>
@@ -23,7 +24,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
 
 /**
  * Define upgrade steps to be performed to upgrade the plugin from the old version to the current one.
@@ -34,7 +34,7 @@ function xmldb_local_greetings_upgrade($oldversion) {
     global $DB;
     $dbman = $DB->get_manager();
 
-    if ($oldversion < 2023022201) {
+    if ($oldversion < 2023022200) {
 
         // Define field userid to be added to local_greetings_messages.
         $table = new xmldb_table('local_greetings_messages');
@@ -44,7 +44,7 @@ function xmldb_local_greetings_upgrade($oldversion) {
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
         }
-
+        
         // Define key greetings-user-foreign-key (foreign) to be added to local_greetings_messages.
         $key = new xmldb_key('greetings-user-foreign-key', XMLDB_KEY_FOREIGN, ['userid'], 'user', ['id']);
 
@@ -52,7 +52,7 @@ function xmldb_local_greetings_upgrade($oldversion) {
         $dbman->add_key($table, $key);
 
         // Greetings savepoint reached.
-        upgrade_plugin_savepoint(true, 2023022201, 'local', 'greetings');
+        upgrade_plugin_savepoint(true, 2023022200, 'local', 'greetings');
     }
 
     return true;

@@ -14,8 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
+
 /**
- * Plugin version and other meta-data are defined here.
+ *  Main file to view greetings
  *
  * @package     local_greetings
  * @copyright   2023 Paul <paul.rojas@correounivalle.edu.co>
@@ -24,8 +25,29 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_greetings';
-$plugin->release = '0.1.0';
-$plugin->version = 2023022508;
-$plugin->requires = 2020061500;
-$plugin->maturity = MATURITY_ALPHA;
+$capabilities = array(
+    'local/greetings:postmessages' => array(
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+        )
+    ),
+    'local/greetings:viewmessages' => array(
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+        )
+    ),
+    'local/greetings:deleteanymessage' => array(
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+        )
+    ),
+);

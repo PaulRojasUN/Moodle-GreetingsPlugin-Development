@@ -36,6 +36,10 @@ $string['greetinguserfj'] = 'Bula, {$a}.';
 $string['greetingusernz'] = 'Kia Ora, {$a}.';
 $string['greetinguserco'] = 'Que hubo, {$a}.';
 
-$string['yourmessage'] = '!Escribe un mensaje en el espacio para que aparezca en esta página!';
+$string['yourmessage'] = 'Ingresa un saludo';
 
 $string['postedby'] = 'Posted by {$a}.';
+
+$string['greetings:viewmessages'] = 'View messages on the Greetings wall';
+$string['greetings:postmessages'] = 'Post a new message on the Greetings wall';
+$string['greetings:deleteanymessage'] = "Delete any user's messsage";
