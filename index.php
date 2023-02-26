@@ -69,10 +69,6 @@ if ($data = $messageform->get_data()) {
         $record = new stdClass;
         $record->message = $message;
         $record->timecreated = time();
-<<<<<<< HEAD
-=======
-
->>>>>>> extra
         $record->userid = $USER->id;
 
         $DB->insert_record('local_greetings_messages', $record);
