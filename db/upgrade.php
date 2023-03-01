@@ -44,7 +44,7 @@ function xmldb_local_greetings_upgrade($oldversion) {
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
         }
-        
+
         // Define key greetings-user-foreign-key (foreign) to be added to local_greetings_messages.
         $key = new xmldb_key('greetings-user-foreign-key', XMLDB_KEY_FOREIGN, ['userid'], 'user', ['id']);
 

@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
     $settings = new admin_settingpage('local_greetings', get_string('pluginname', 'local_greetings'));
-    
+
     if ($ADMIN->fulltree) {
         require_once($CFG->dirroot . '/local/greetings/lib.php');
 
@@ -40,4 +40,3 @@ if ($hassiteconfig) {
 
     $ADMIN->add('localplugins', $settings);
 }
-
