@@ -1,8 +1,6 @@
 # Greetings #
 
-TODO Describe the plugin shortly here.
-
-TODO Provide more detailed description here.
+This is my development of the plugin Greetings, following the steps of the Beginner level courses offered by Moodle Academy in the Developer Learning Pathway.
 
 ## Installing via uploaded ZIP file ##
 
